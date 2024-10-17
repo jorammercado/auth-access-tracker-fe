@@ -1,5 +1,15 @@
 import { useState } from 'react'
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom"
+import Home from "./pages/Home"
+import UserPortal from "./pages/UserPortal"
+import ProtectedRoute from "./components/ProtectedRoute"
+import UserInfoEditForm from "./components/UserInfoEditForm"
+import Login from "./pages/Login"
+import SignUp from "./pages/SignUp"
+import PublicRoute from "./components/PublicRoute"
+import FourOFour from "./pages/FourOFour"
+import NavBar from "./components/NavBar";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 
 function App() {
