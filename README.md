@@ -1,4 +1,4 @@
-# Red Canary Take Home - User Authentication and Access Tracking System Frontend
+# User Authentication and Access Tracking System Frontend
 
 ![Red Canary Logo](./red-canary-logo.png)
 
@@ -26,7 +26,7 @@ This repository contains the frontend of the "User Authentication and Access Tra
 - [Contact](#contact)
 
 ## Deployed App Access
-- **Deployed App on Netlify**: [Application](https://www.netlify.com/) *(temp place holder)*
+- **Deployed App on Netlify**: [Application](https://redcanary-securelogin-test.netlify.app/) 
 - **Deployed Server on Render**: [Server](https://red-canary-takehome-be.onrender.com/)
 
 ## GitHub Repositories
