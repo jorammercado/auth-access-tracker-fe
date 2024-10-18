@@ -133,7 +133,7 @@ export default function SignUpForm({ setCurrentUser }) {
                     </Row>
                     <br></br>
                     <br></br>
-                    <SignUpButton className="btn btn-secondary btn-sm" type="submit">
+                    <SignUpButton type="submit">
                         Create User
                     </SignUpButton>
                 </Form>

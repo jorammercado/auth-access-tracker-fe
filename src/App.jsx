@@ -8,8 +8,10 @@ import Login from "./pages/Login"
 import SignUp from "./pages/SignUp"
 import PublicRoute from "./components/PublicRoute"
 import FourOFour from "./pages/FourOFour"
-import NavBar from "./components/NavBar";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import NavBar from "./components/NavBar"
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap-icons/font/bootstrap-icons.css'
+
 import './App.css'
 
 function App() {
