@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-
 export const LoginBackground = styled.form`
   position: absolute;
   width: 460px;
@@ -35,9 +34,6 @@ export const LoginLabel = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  
-
-  
 `
 
 export const LoginHeader = styled.h2`
@@ -149,3 +145,4 @@ export const OkButton = styled.button`
       outline: none;
   }
 `
+

@@ -8,7 +8,7 @@ export default function NavBar() {
             <div className="container-fluid">
                 <div className="main-links">
                     <Link to="/users/:user_id/profile">
-                        <p >User</p>
+                        <p >Log In</p>
                     </Link>
                     <Link to="/signup">
                         <p >Sign Up</p>

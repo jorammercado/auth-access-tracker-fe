@@ -1,9 +1,9 @@
-import React from 'react'
+import SignUpForm from "../components/SignUpForm"
 
-const SignUp = () => {
+function SignUp({ setCurrentUser }) {
     return (
-        <div>
-            
+        <div >
+            <SignUpForm setCurrentUser={setCurrentUser} />
         </div>
     )
 }
