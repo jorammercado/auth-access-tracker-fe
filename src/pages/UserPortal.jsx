@@ -1,10 +1,17 @@
-import React from 'react'
-
-const UserPortal = () => {
+import {
+    ProfileWrapper,
+    SideRail,
+    ProfileMain,
+} from '../styles/portalElements'
+import UserInfo from '../components/UserInfo'
+function UserPortal({ currentUser, setCurrentUser }) {
     return (
-        <div>
-            
-        </div>
+        <ProfileWrapper>
+            <SideRail />
+            <ProfileMain>
+                <UserInfo currentUser={currentUser} setCurrentUser={setCurrentUser} />
+            </ProfileMain>
+        </ProfileWrapper>
     )
 }
 

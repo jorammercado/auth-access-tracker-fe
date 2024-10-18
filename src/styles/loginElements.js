@@ -146,3 +146,19 @@ export const OkButton = styled.button`
   }
 `
 
+export const ProfileButton = styled.button`  
+  width: 130px;
+  height: 50px;
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  color: white;
+  cursor: pointer;
+  margin-left: 7px;
+  margin-right: 7px;
+
+  background-color: #cf2e2e;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  
+`
