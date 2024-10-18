@@ -1,7 +1,6 @@
 .navbar {
     display: flex;
     overflow: hidden;
-    background-color: #333;
     position: fixed;
     top: 0;
     width: 100%;
@@ -17,10 +16,23 @@
     margin: 5px 15px 5px 15px;
     text-decoration: none;
     font-size: 28px;
+
+    @media (max-width: 1000px) {
+        font-size: 23px;
+    }
+
+    @media (max-width: 360px) {
+        font-size: 15px;
+    }
+
+    @media (max-width: 300px) {
+        padding-bottom: 5px;
+        margin-bottom: -10px
+    }
 }
 
 .navbar a:hover {
-    background: #ddd;
+    background: #A9A9A9;
     color: black;
     padding-bottom: 0px;
     border-radius: 4px;
@@ -28,6 +40,10 @@
 
 .navbar-text {
     font-size: 25px;
+
+    @media (max-width: 1000px) {
+        display: none;
+    }
 }
 
 .main-links {
@@ -36,4 +52,20 @@
 
 .image {
     margin-right: 5vw;
+}
+
+img {
+    height: 55px;
+
+    @media (max-width: 1000px) {
+        height: 40px;
+    }
+
+    @media (max-width: 360px) {
+        height: 30px;
+    }
+
+    @media (max-width: 300px) {
+        display: none;
+    }
 }
