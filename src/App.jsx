@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom"
 import Home from "./pages/Home"
 import UserPortal from "./pages/UserPortal"
@@ -16,12 +17,36 @@ import './App.css'
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
+  const [token, setToken] = useState(localStorage.getItem('authToken') || null)
+
+  const handleLogin = (user, jwtToken) => {
+    setCurrentUser(user)
+    setToken(jwtToken)
+    localStorage.setItem('authToken', jwtToken)
+  }
+
+  const handleLogout = () => {
+    setCurrentUser(null)
+    setToken(null)
+    localStorage.removeItem('authToken')
+  }
+
+  useEffect(() => {
+    if (token) {
+      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
+    } else {
+      delete axios.defaults.headers.common['Authorization']
+    }
+  }, [token])
+
   return (
     <div className='app-wrapper'>
       <Router>
         <div className="nav">
           <NavBar currentUser={currentUser}
-            setCurrentUser={setCurrentUser} />
+            setCurrentUser={setCurrentUser}
+            handleLogout={handleLogout}
+          />
         </div>
         <main className="main-content">
           <Routes>
@@ -30,7 +55,7 @@ function App() {
                 <PublicRoute
                   element={Login}
                   currentUser={currentUser}
-                  setCurrentUser={setCurrentUser}
+                  setCurrentUser={handleLogin}
                 />
               }
             />
@@ -50,7 +75,7 @@ function App() {
                 <PublicRoute
                   element={SignUp}
                   currentUser={currentUser}
-                  setCurrentUser={setCurrentUser}
+                  setCurrentUser={handleLogin}
                 />
               }
             />

@@ -1,12 +1,14 @@
 import {
-    Navigate,
-    Route
+    Navigate
 } from 'react-router-dom'
 
 const ProtectedRoute = ({ element: Component,
     currentUser,
     setCurrentUser }) => {
-    return currentUser ?
+
+    const token = localStorage.getItem('authToken')
+
+    return token ?
         <Component currentUser={currentUser} setCurrentUser={setCurrentUser} /> :
         <Navigate to="/login" />
 }

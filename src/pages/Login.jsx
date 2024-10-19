@@ -64,9 +64,10 @@ const Login = ({ setCurrentUser }) => {
             password
         })
             .then(res => {
-                setCurrentUser(res.data.oneUser)
+                const { token, oneUser } = res.data
+                setCurrentUser(oneUser, token)
                 setErrors([])
-                navigate(`/users/${res.data.oneUser.user_id}/profile`)
+                navigate(`/users/${oneUser.user_id}/profile`)
             })
             .catch(err => {
                 console.error(err.response.data.error)
