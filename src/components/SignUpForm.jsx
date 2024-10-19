@@ -41,9 +41,17 @@ export default function SignUpForm({ setCurrentUser }) {
                 }
                 else {
                     alert(`User ${data.username} succesfully created`)
-                    setUser(data)
                     setCurrentUser(data)
                     navigate(`/users/${data.user_id}/profile`)
+                    setUser({
+                        user_id: 0,
+                        firstname: "",
+                        lastname: "",
+                        username: "",
+                        email: "",
+                        password: "",
+                        registration_date: ""
+                    })
                 }
             })
             .catch((error) => {
