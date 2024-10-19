@@ -8,7 +8,7 @@ const ProtectedRoute = ({ element: Component,
     setCurrentUser }) => {
     return currentUser ?
         <Component currentUser={currentUser} setCurrentUser={setCurrentUser} /> :
-        <Navigate to="/" />
+        <Navigate to="/login" />
 }
 
 export default ProtectedRoute

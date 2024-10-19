@@ -8,8 +8,8 @@ const PublicRoute = ({ element: Component,
     currentUser,
     setCurrentUser }) => {
     return !currentUser ?
-        <Component setCurrentUser={setCurrentUser} /> :
-        <Navigate to={`/users/${currentUser.id}/profile`} />
+        <Component setCurrentUser={setCurrentUser} currentUser={currentUser} /> :
+        <Navigate to={`/users/${currentUser.user_id}/profile`} />
 }
 
 export default PublicRoute

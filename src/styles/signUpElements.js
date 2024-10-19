@@ -4,7 +4,7 @@ export const SignUpBackground = styled.div`
   position: absolute;
   width: 450px;
   height: 520px;
-  top: 56%;
+  top: 51%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: #212529;

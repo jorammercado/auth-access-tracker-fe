@@ -17,13 +17,13 @@ import './App.css'
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
   return (
-    <div className='app'>
+    <div className='app-wrapper'>
       <Router>
         <div className="nav">
           <NavBar currentUser={currentUser}
             setCurrentUser={setCurrentUser} />
         </div>
-        <main>
+        <main className="main-content">
           <Routes>
             <Route path="/login"
               element={
@@ -37,7 +37,11 @@ function App() {
 
             <Route path="/"
               element={
-                <Navigate to="/login" />
+                <ProtectedRoute
+                  element={Home}
+                  currentUser={currentUser}
+                  setCurrentUser={setCurrentUser}
+                />
               }
             />
 
@@ -96,6 +100,9 @@ function App() {
             />
           </Routes>
         </main>
+        <footer className="footer bg-dark text-white text-center py-3">
+          <p>&copy; 2024 User Authentication and Access Tracking System. All rights reserved.</p>
+        </footer>
       </Router>
     </div>
   )

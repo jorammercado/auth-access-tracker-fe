@@ -3,12 +3,12 @@ import styled from 'styled-components'
 export const ProfileWrapper = styled.div`
   display: flex;
   width: 100%;
-  height:100vh;
+  height:70vh;
 `
 
 export const SideRail = styled.div`
   width: 30px;
-  min-height: 111.5vh;
+  min-height: 90vh;
   margin-top: -50px;
   background: linear-gradient(116.82deg, #212529 -5%, #cf2e2e 100%);
   border-radius: 5px;
