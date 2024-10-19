@@ -139,23 +139,22 @@ export default function UserInfoEditForm({ setCurrentUser, currentUser }) {
                         </Form.Group>
                     </Row>
                     <Row className="mb-3">
-                        <Form.Group as={Col} controlId="password">
+                        <Form.Group as={Col} controlId="dob">
                             <InputGroup>
-                                <InputGroup.Text style={{ display: 'flex', alignItems: 'center' }}>
-                                    <i className="bi bi-shield-lock  "></i>
+                                <InputGroup.Text >
+                                    <i className="bi bi-cake2"></i>
                                 </InputGroup.Text>
                                 <Form.Control
                                     className="edit-style"
-                                    name="password"
+                                    name="dob"
                                     type="text"
-                                    placeholder="password"
-                                    value={user.password}
+                                    placeholder="DOB"
+                                    value={user.dob}
                                     onChange={handleInputChange}
                                 />
                             </InputGroup>
                         </Form.Group>
                     </Row>
-                    <br></br>
                     <br></br>
                     <EditButton type="submit">
                         Update User
