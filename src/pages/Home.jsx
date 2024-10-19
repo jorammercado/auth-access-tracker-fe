@@ -22,7 +22,7 @@ const Home = () => {
                         <div className="col-md-4">
                             <div className="card feature-card-home">
                                 <div className="card-body">
-                                    <i className="bi bi-shield-lock" ></i>
+                                    <i className="bi bi-shield-lock home-icon" ></i>
                                     <h5 className="card-title mt-3">Secure Authentication</h5>
                                     <p className="card-text">Our system offers industry-standard user authentication with advanced security features.</p>
                                 </div>
@@ -31,7 +31,7 @@ const Home = () => {
                         <div className="col-md-4">
                             <div className="card feature-card-home">
                                 <div className="card-body">
-                                    <i className="bi bi-file-earmark-person" ></i>
+                                    <i className="bi bi-file-earmark-person home-icon" ></i>
                                     <h5 className="card-title mt-3">User Management</h5>
                                     <p className="card-text">Easily create, update, or delete users and manage their information effectively.</p>
                                 </div>
@@ -40,7 +40,7 @@ const Home = () => {
                         <div className="col-md-4">
                             <div className="card feature-card-home">
                                 <div className="card-body">
-                                    <i className="bi bi-envelope" ></i>
+                                    <i className="bi bi-envelope home-icon" ></i>
                                     <h5 className="card-title mt-3">Email Notifications</h5>
                                     <p className="card-text">Receive automatic email notifications for suspicious activity, password resets, and more.</p>
                                 </div>
