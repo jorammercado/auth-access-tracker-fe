@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 import Form from "react-bootstrap/Form"
 import Col from "react-bootstrap/Col"
 import Row from "react-bootstrap/Row"
+import InputGroup from "react-bootstrap/InputGroup"
 import {
     SignUpBackground,
     SignUpButton
@@ -19,6 +20,7 @@ export default function SignUpForm({ setCurrentUser }) {
         username: "",
         email: "",
         password: "",
+        dob: "",
         registration_date: ""
     })
     const navigate = useNavigate()
@@ -50,6 +52,7 @@ export default function SignUpForm({ setCurrentUser }) {
                         username: "",
                         email: "",
                         password: "",
+                        dob: "",
                         registration_date: ""
                     })
                 }
@@ -76,70 +79,111 @@ export default function SignUpForm({ setCurrentUser }) {
     return (
         <div className="form-new-user">
             <SignUpBackground >
-             
+
                 <Form className="form" noValidate onSubmit={handleSubmit}>
                     <Row className="mb-3">
                         <Form.Group as={Col} controlId="username">
-                            <Form.Control
-                                className="login-style"
-                                required
-                                name="username"
-                                type="text"
-                                placeholder="username"
-                                value={user.username}
-                                onChange={handleInputChange}
-                            />
+                            <InputGroup>
+                                <InputGroup.Text>
+                                    <i className="bi bi-person-fill"></i>
+                                </InputGroup.Text>
+                                <Form.Control
+                                    className="edit-style"
+                                    required
+                                    name="username"
+                                    type="text"
+                                    placeholder="username"
+                                    value={user.username}
+                                    onChange={handleInputChange}
+                                />
+                            </InputGroup>
                         </Form.Group>
                     </Row>
                     <Row className="mb-3">
                         <Form.Group as={Col} controlId="email">
-                            <Form.Control
-                                className="login-style"
-                                name="email"
-                                type="text"
-                                placeholder="email"
-                                value={user.email}
-                                onChange={handleInputChange}
-                            />
+                            <InputGroup>
+                                <InputGroup.Text>
+                                    <i className="bi bi-envelope"></i>
+                                </InputGroup.Text>
+                                <Form.Control
+                                    className="edit-style"
+                                    name="email"
+                                    type="text"
+                                    placeholder="email"
+                                    value={user.email}
+                                    onChange={handleInputChange}
+                                />
+                            </InputGroup>
                         </Form.Group>
                     </Row>
                     <Row className="mb-3">
                         <Form.Group as={Col} controlId="firstname">
-                            <Form.Control
-                                className="login-style"
-                                name="firstname"
-                                type="text"
-                                placeholder="first name"
-                                value={user.firstname}
-                                onChange={handleInputChange}
-                            />
+                            <InputGroup>
+                                <InputGroup.Text>
+                                    <i className="small-icon" >FN</i>
+                                </InputGroup.Text>
+                                <Form.Control
+                                    className="edit-style"
+                                    name="firstname"
+                                    type="text"
+                                    placeholder="first name"
+                                    value={user.firstname}
+                                    onChange={handleInputChange}
+                                />
+                            </InputGroup>
                         </Form.Group>
                     </Row>
                     <Row className="mb-3">
                         <Form.Group as={Col} controlId="lastname">
-                            <Form.Control
-                                className="login-style"
-                                name="lastname"
-                                type="text"
-                                placeholder="last name"
-                                value={user.lastname}
-                                onChange={handleInputChange}
-                            />
+                            <InputGroup>
+                                <InputGroup.Text>
+                                    <i className="small-icon" >LN</i>
+                                </InputGroup.Text>
+                                <Form.Control
+                                    className="edit-style"
+                                    name="lastname"
+                                    type="text"
+                                    placeholder="last name"
+                                    value={user.lastname}
+                                    onChange={handleInputChange}
+                                />
+                            </InputGroup>
+                        </Form.Group>
+                    </Row>
+                    <Row className="mb-3">
+                        <Form.Group as={Col} controlId="dob">
+                            <InputGroup>
+                                <InputGroup.Text >
+                                    <i className="bi bi-cake2"></i>
+                                </InputGroup.Text>
+                                <Form.Control
+                                    className="edit-style"
+                                    name="dob"
+                                    type="text"
+                                    placeholder="DOB"
+                                    value={user.dob}
+                                    onChange={handleInputChange}
+                                />
+                            </InputGroup>
                         </Form.Group>
                     </Row>
                     <Row className="mb-3">
                         <Form.Group as={Col} controlId="password">
-                            <Form.Control
-                                className="login-style"
-                                name="password"
-                                type="text"
-                                placeholder="password"
-                                value={user.password}
-                                onChange={handleInputChange}
-                            />
+                            <InputGroup>
+                                <InputGroup.Text >
+                                    <i className="bi bi-shield-lock  "></i>
+                                </InputGroup.Text>
+                                <Form.Control
+                                    className="edit-style"
+                                    name="password"
+                                    type="text"
+                                    placeholder="password"
+                                    value={user.password}
+                                    onChange={handleInputChange}
+                                />
+                            </InputGroup>
                         </Form.Group>
                     </Row>
-                    <br></br>
                     <br></br>
                     <SignUpButton type="submit">
                         Create User

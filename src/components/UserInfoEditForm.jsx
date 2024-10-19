@@ -4,10 +4,9 @@ import { useNavigate } from "react-router-dom"
 import Form from "react-bootstrap/Form"
 import Col from "react-bootstrap/Col"
 import Row from "react-bootstrap/Row"
-import InputGroup from "react-bootstrap/InputGroup";
+import InputGroup from "react-bootstrap/InputGroup"
 import {
-    SignUpBackground,
-    SignUpButton
+    SignUpBackground
 } from '../styles/signUpElements'
 import {
     EditButton
