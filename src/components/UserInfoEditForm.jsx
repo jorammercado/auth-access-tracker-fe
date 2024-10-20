@@ -18,11 +18,13 @@ export default function UserInfoEditForm({ setCurrentUser, currentUser }) {
     const [user, setUser] = useState(currentUser)
     const navigate = useNavigate()
     const editUser = () => {
+        const token = localStorage.getItem('authToken')
         fetch(`${API}/users/${currentUser.user_id}`, {
             method: "PUT",
             body: JSON.stringify(user),
             headers: {
                 "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
             },
         })
             .then(response => response.json())
