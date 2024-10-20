@@ -43,7 +43,7 @@ export default function NavBar({ token, setToken, handleLogout }) {
                             Profile
                         </Link>
                         <button
-                            onClick={handleLogout}
+                            onClick={() => handleLogout(false)}
                             className="link-button"
                         >
                             Log Out

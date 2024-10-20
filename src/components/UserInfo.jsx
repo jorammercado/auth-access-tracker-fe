@@ -7,7 +7,7 @@ import Swal from 'sweetalert2'
 
 const API = import.meta.env.VITE_API_URL
 
-const UserInfo = ({ currentUser, setCurrentUser, setToken }) => {
+const UserInfo = ({ currentUser, setCurrentUser, setToken, handleLogout }) => {
     const navigate = useNavigate()
 
     const handleDelete = () => {
@@ -112,12 +112,7 @@ const UserInfo = ({ currentUser, setCurrentUser, setToken }) => {
                     <ProfileButton onClick={handleDelete}>
                         delete account
                     </ProfileButton>
-                    <ProfileButton onClick={() => {
-                        localStorage.removeItem('authToken')
-                        setCurrentUser(null)
-                        setToken(null)
-                        navigate(`/`)
-                    }}>
+                    <ProfileButton onClick={() => handleLogout(false)}>
                         logout
                     </ProfileButton>
                 </div>

@@ -37,7 +37,7 @@ function App() {
       }, expirationTime)
     } catch (error) {
       console.error('Invalid token during login:', error)
-      handleLogout()
+      handleLogout(false)
     }
   }
 
@@ -49,13 +49,21 @@ function App() {
 
     if (isTimeout) {
       Swal.fire({
-        title: 'Session Timed Out',
-        text: 'Your session has timed out. Please log in again.',
-        icon: 'info',
-        confirmButtonText: 'OK',
-        confirmButtonColor: '#3085d6'
+          title: 'Session Timed Out',
+          text: 'Your session has timed out. Please log in again.',
+          icon: 'info',
+          confirmButtonText: 'OK',
+          confirmButtonColor: '#3085d6'
       })
-    }
+  } else {
+      Swal.fire({
+          title: 'Logged Out',
+          text: 'You have been successfully logged out.',
+          icon: 'success',
+          confirmButtonText: 'OK',
+          confirmButtonColor: '#3085d6'
+      })
+  }
   }
 
   useEffect(() => {
@@ -140,6 +148,7 @@ function App() {
                   currentUser={currentUser}
                   setCurrentUser={setCurrentUser}
                   setToken={setToken}
+                  handleLogout={handleLogout}
                 />
               }
             />
