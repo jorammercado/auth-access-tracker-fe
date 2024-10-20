@@ -3,10 +3,11 @@ import "./UserInfo.css"
 import {
     ProfileButton
 } from '../styles/loginElements'
+import Swal from 'sweetalert2'
 
 const API = import.meta.env.VITE_API_URL
 
-const UserInfo = ({ currentUser, setCurrentUser }) => {
+const UserInfo = ({ currentUser, setCurrentUser, setToken }) => {
     const navigate = useNavigate()
 
     const handleDelete = () => {
@@ -25,9 +26,18 @@ const UserInfo = ({ currentUser, setCurrentUser }) => {
                 else if (data?.err)
                     throw new Error(data?.err)
                 else {
-                    localStorage.removeItem('authToken')
-                    setCurrentUser(null)
-                    navigate("/login")
+                    Swal.fire({
+                        title: 'Deleted!',
+                        text: 'Your account has been deleted.',
+                        icon: 'success',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#cf2e2e' 
+                    }).then(() => {
+                        localStorage.removeItem('authToken')
+                        setCurrentUser(null)
+                        setToken(null)
+                        navigate("/login")
+                    })
                 }
             })
             .catch((error) => console.error(error))
@@ -105,6 +115,7 @@ const UserInfo = ({ currentUser, setCurrentUser }) => {
                     <ProfileButton onClick={() => {
                         localStorage.removeItem('authToken')
                         setCurrentUser(null)
+                        setToken(null)
                         navigate(`/`)
                     }}>
                         logout

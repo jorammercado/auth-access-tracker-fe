@@ -12,6 +12,7 @@ import {
     EditButton
 } from '../styles/loginElements'
 import "./SignUpForm.css"
+import Swal from 'sweetalert2'
 const API = import.meta.env.VITE_API_URL
 
 export default function UserInfoEditForm({ setCurrentUser, currentUser }) {
@@ -36,13 +37,26 @@ export default function UserInfoEditForm({ setCurrentUser, currentUser }) {
                     throw new Error(data.err)
                 }
                 else {
-                    alert(`User ${data.username} succesfully updated`)
-                    setCurrentUser(data)
-                    navigate(`/users/${data.user_id}/profile`)
+                    Swal.fire({
+                        title: 'Success!',
+                        text: `User ${data.username} successfully updated`,
+                        icon: 'success',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#cf2e2e'
+                    }).then(() => {
+                        setCurrentUser(data)
+                        navigate(`/users/${data.user_id}/profile`)
+                    })
                 }
             })
             .catch((error) => {
-                alert(error)
+                Swal.fire({
+                    title: 'Error',
+                    text: error.message,
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#d33'
+                })
                 console.error(error)
             })
     }

@@ -4,12 +4,13 @@ import {
 
 const ProtectedRoute = ({ element: Component,
     currentUser,
-    setCurrentUser }) => {
+    setCurrentUser,
+    setToken }) => {
 
     const token = localStorage.getItem('authToken')
 
     return token ?
-        <Component currentUser={currentUser} setCurrentUser={setCurrentUser} /> :
+        <Component currentUser={currentUser} setCurrentUser={setCurrentUser} setToken={setToken} /> :
         <Navigate to="/login" />
 }
 

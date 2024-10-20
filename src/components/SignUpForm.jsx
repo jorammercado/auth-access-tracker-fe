@@ -10,6 +10,7 @@ import {
     SignUpButton
 } from '../styles/signUpElements'
 import "./SignUpForm.css"
+import Swal from 'sweetalert2'
 const API = import.meta.env.VITE_API_URL
 
 export default function SignUpForm({ setCurrentUser }) {
@@ -42,23 +43,36 @@ export default function SignUpForm({ setCurrentUser }) {
                     throw new Error(data?.err)
                 }
                 else {
-                    alert(`User ${data?.createdUser?.username} succesfully created`)
-                    setCurrentUser(data?.createdUser, data?.token)
-                    navigate(`/users/${data?.createdUser?.user_id}/profile`)
-                    setUser({
-                        user_id: 0,
-                        firstname: "",
-                        lastname: "",
-                        username: "",
-                        email: "",
-                        password: "",
-                        dob: "",
-                        registration_date: ""
+                    Swal.fire({
+                        title: 'Success!',
+                        text: `User ${data?.createdUser?.username} successfully created`,
+                        icon: 'success',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#3085d6'
+                    }).then(() => {
+                        setCurrentUser(data?.createdUser, data?.token)
+                        navigate(`/users/${data?.createdUser?.user_id}/profile`)
+                        setUser({
+                            user_id: 0,
+                            firstname: "",
+                            lastname: "",
+                            username: "",
+                            email: "",
+                            password: "",
+                            dob: "",
+                            registration_date: ""
+                        })
                     })
                 }
             })
             .catch((error) => {
-                alert(error)
+                Swal.fire({
+                    title: 'Error',
+                    text: error.message,
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#d33'
+                })
                 console.error(error)
             })
     }

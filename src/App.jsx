@@ -11,6 +11,7 @@ import SignUp from "./pages/SignUp"
 import PublicRoute from "./components/PublicRoute"
 import FourOFour from "./pages/FourOFour"
 import NavBar from "./components/NavBar"
+import Swal from 'sweetalert2'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 
@@ -39,11 +40,18 @@ function App() {
   }
 
   const handleLogout = () => {
-    setCurrentUser(null)
-    setToken(null)
-    localStorage.removeItem('authToken')
-    alert("Your session has timed out. Please log in again.")
-  }
+    Swal.fire({
+        title: 'Session Timeout',
+        text: 'Your session has timed out. Please log in again.',
+        icon: 'info',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#cf2e2e' 
+    }).then(() => {
+        setCurrentUser(null)
+        setToken(null)
+        localStorage.removeItem('authToken')
+    })
+}
 
   useEffect(() => {
     if (token) {
@@ -127,6 +135,7 @@ function App() {
                   element={UserPortal}
                   currentUser={currentUser}
                   setCurrentUser={setCurrentUser}
+                  setToken={setToken}
                 />
               }
             />
