@@ -20,10 +20,10 @@ const UserInfo = ({ currentUser, setCurrentUser }) => {
         fetch(`${API}/users/${currentUser.user_id}`, httpOptions)
             .then((res) => res.json())
             .then(data => {
-                if (data.error)
-                    throw new Error(data.error)
-                else if (data.err)
-                    throw new Error(data.err)
+                if (data?.error)
+                    throw new Error(data?.error)
+                else if (data?.err)
+                    throw new Error(data?.err)
                 else {
                     setCurrentUser(null)
                     navigate("/login")
@@ -56,7 +56,7 @@ const UserInfo = ({ currentUser, setCurrentUser }) => {
                             <th colSpan="4">
                                 <div className="row-content">
                                     <span className="label">Full Name:</span>
-                                    <span className="value">{currentUser.firstname} {currentUser.lastname}</span>
+                                    <span className="value">{currentUser?.firstname} {currentUser?.lastname}</span>
                                 </div>
                             </th>
                         </tr>
@@ -64,7 +64,7 @@ const UserInfo = ({ currentUser, setCurrentUser }) => {
                             <th colSpan="4">
                                 <div className="row-content">
                                     <span className="label">Email:</span>
-                                    <span className="value">{currentUser.email}</span>
+                                    <span className="value">{currentUser?.email}</span>
                                 </div>
                             </th>
                         </tr>
@@ -72,7 +72,7 @@ const UserInfo = ({ currentUser, setCurrentUser }) => {
                             <th colSpan="4">
                                 <div className="row-content">
                                     <span className="label">Username:</span>
-                                    <span className="value">{currentUser.username}</span>
+                                    <span className="value">{currentUser?.username}</span>
                                 </div>
                             </th>
                         </tr>
@@ -80,7 +80,7 @@ const UserInfo = ({ currentUser, setCurrentUser }) => {
                             <th colSpan="4">
                                 <div className="row-content">
                                     <span className="label">DOB:</span>
-                                    <span className="value">{currentUser.dob}</span>
+                                    <span className="value">{currentUser?.dob}</span>
                                 </div>
                             </th>
                         </tr>
@@ -88,14 +88,14 @@ const UserInfo = ({ currentUser, setCurrentUser }) => {
                             <th colSpan="4">
                                 <div className="row-content">
                                     <span className="label">Member Since:</span>
-                                    <span className="value">{currentUser.registration_date.split("T")[0]},&nbsp;&nbsp;{currentUser.registration_date.split("T")[1].replace("Z", " UTC")}</span>
+                                    <span className="value">{currentUser?.registration_date.split("T")[0]},&nbsp;&nbsp;{currentUser?.registration_date.split("T")[1].replace("Z", " UTC")}</span>
                                 </div>
                             </th>
                         </tr>
                     </tbody>
                 </table>
                 <div className="show-navigation">
-                    <ProfileButton onClick={() => { navigate(`/users/${currentUser.user_id}/profile/edit`) }}>
+                    <ProfileButton onClick={() => { navigate(`/users/${currentUser?.user_id}/profile/edit`) }}>
                         edit
                     </ProfileButton>
                     <ProfileButton onClick={handleDelete}>
