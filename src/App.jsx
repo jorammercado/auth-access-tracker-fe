@@ -29,6 +29,7 @@ function App() {
     const expirationTime = exp * 1000 - Date.now()
 
     setTimeout(() => {
+      alert("Your session has timed out. Please log in again.")
       handleLogout()
     }, expirationTime)
   }
