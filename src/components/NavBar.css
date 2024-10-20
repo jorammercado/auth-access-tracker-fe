@@ -12,13 +12,20 @@
     display: flex;
     color: #f2f2f2;
     text-align: center;
-    padding: 10px;
-    margin: 5px 15px 5px 15px;
+    padding: 7px;
+    margin: 5px 45px 5px 15px;
     text-decoration: none;
     font-size: 28px;
 
-    @media (max-width: 1035px) {
+    @media (max-width: 1095px) {
         font-size: 23px;
+    }
+
+    @media (max-width: 905px) {
+        font-size: 22px;
+        padding: 5px;
+        margin-left: 10px;
+        margin-right: 10px;
     }
 
     @media (max-width: 750px) {
@@ -29,7 +36,11 @@
         font-size: 17px;
     }
 
-    @media (max-width: 360px) {
+    @media (max-width: 605px) {
+        font-size: 16px;
+    }
+
+    @media (max-width: 600px) {
         font-size: 15px;
     }
 
@@ -49,8 +60,12 @@
 .navbar-text {
     font-size: 25px;
 
-    @media (max-width: 1000px) {
+    @media (max-width: 1065px) {
         font-size: 20px;
+    }
+
+    @media (max-width: 930px) {
+        font-size: 19px;
     }
 
     @media (max-width: 880px) {
@@ -61,7 +76,19 @@
         font-size: 15px;
     }
 
-    @media (max-width: 715px) {
+    @media (max-width: 630px) {
+        font-size: 14px;
+    }
+
+    @media (max-width: 585px) {
+        font-size: 20px;
+    }
+
+    @media (max-width: 375px) {
+        font-size: 16px;
+    }
+
+    @media (max-width: 350px) {
         display: none;
     }
 }
@@ -71,7 +98,7 @@
 }
 
 .image {
-    margin-right: 5vw;
+    margin-left: 10px;
 }
 
 img {
@@ -81,11 +108,61 @@ img {
         height: 40px;
     }
 
-    @media (max-width: 360px) {
+    @media (max-width: 595px) {
         height: 30px;
     }
 
-    @media (max-width: 330px) {
-        display: none;
+    @media (max-width: 585px) {
+        height: 29px;
     }
+}
+
+.link-button {
+    background: none;
+    border: none;
+    color: #f2f2f2;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 7px;
+    margin: 5px 45px 5px 15px;
+    font-size: 26px !important;
+
+    @media (max-width: 1095px) {
+        font-size: 22px !important;
+    }
+
+    @media (max-width: 905px) {
+        font-size: 21px !important;
+        padding: 5px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    @media (max-width: 750px) {
+        font-size: 19px !important;
+    }
+
+    @media (max-width: 730px) {
+        font-size: 18px !important;
+    }
+
+    @media (max-width: 605px) {
+        font-size: 15px !important;
+    }
+
+    @media (max-width: 600px) {
+        font-size: 14px !important;
+    }
+
+    @media (max-width: 300px) {
+        padding-bottom: 5px ;
+        margin-bottom: -10px ;
+    }
+}
+
+.link-button:hover {
+    background: #A9A9A9;
+    color: black;
+    border-radius: 4px;
 }

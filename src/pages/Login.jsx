@@ -70,8 +70,8 @@ const Login = ({ setCurrentUser }) => {
                 navigate(`/users/${oneUser.user_id}/profile`)
             })
             .catch(err => {
-                console.error(err.response.data.error)
-                processLoginErrors(err.response.data.error)
+                console.error(err?.response?.data?.error)
+                processLoginErrors(err?.response?.data?.error)
             })
     }
 

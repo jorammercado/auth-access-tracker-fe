@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom"
-import * as jwt_decode from 'jwt-decode'
+import { jwtDecode } from "jwt-decode"
 import Home from "./pages/Home"
 import UserPortal from "./pages/UserPortal"
 import ProtectedRoute from "./components/ProtectedRoute"
@@ -25,7 +25,7 @@ function App() {
     setToken(jwtToken)
     localStorage.setItem('authToken', jwtToken)
 
-    const { exp } = jwt_decode(jwtToken)
+    const { exp } = jwtDecode(jwtToken)
     const expirationTime = exp * 1000 - Date.now()
 
     setTimeout(() => {
@@ -42,7 +42,7 @@ function App() {
   useEffect(() => {
     if (token) {
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
-      const { exp } = jwt_decode(token)
+      const { exp } = jwtDecode(token)
       const expirationTime = exp * 1000 - Date.now()
 
       if (expirationTime > 0) {
@@ -61,8 +61,8 @@ function App() {
     <div className='app-wrapper'>
       <Router>
         <div className="nav">
-          <NavBar currentUser={currentUser}
-            setCurrentUser={setCurrentUser}
+          <NavBar token={token}
+            setToken={setToken}
             handleLogout={handleLogout}
           />
         </div>

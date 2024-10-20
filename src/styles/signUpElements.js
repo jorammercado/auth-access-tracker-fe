@@ -24,7 +24,7 @@ export const SignUpBackground = styled.div`
   @media screen and (max-width: 480px) {
     position: fixed;
     width: 90%;
-    height: 60%;
+    height: 65%;
     padding-bottom: 45px;
     box-shadow: none;
   }

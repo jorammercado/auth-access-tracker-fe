@@ -24,9 +24,13 @@ export const LoginBackground = styled.form`
   @media screen and (max-width: 480px) {
     position: fixed;
     width: 90%;
-    height: 40%;
+    height: 45%;
     padding-bottom: 45px;
     box-shadow: none;
+  }
+
+  @media  (max-width: 260px) {
+    width: 100%;
   }
 `
 
@@ -37,20 +41,29 @@ export const LoginLabel = styled.div`
 `
 
 export const LoginHeader = styled.h2`
-  width: 259px;
+  width: 277px;
   height: 30px;
-  font-size: 26px;
+  font-size: 30px;
   line-height: 30px;
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
   color: #f2f2f2;
 
   @media screen and (max-width: 480px) {
     width: 299px;
-    font-size: 30px;
+    font-size: 26px;
+    margin-bottom: 40px;
     line-height: 35px;
     text-align: center;
     color: #FFFFFF;
+  }
+
+  @media  (max-width: 360px) {
+    font-size: 22px;
+  }
+
+  @media  (max-width: 260px) {
+    font-size: 15px;
   }
 `
 
@@ -99,6 +112,14 @@ export const FormInput = styled.input`
       background: #FFFFFF;
     }
   }
+
+  @media  (max-width: 360px) {
+    width: 225px;
+  }
+
+  @media  (max-width: 260px) {
+    width: 140px;
+  }
 `
 
 export const LoginButton = styled.button`
@@ -113,6 +134,14 @@ export const LoginButton = styled.button`
   font-size: 20px;
   line-height: 23px;
   cursor: pointer;
+
+  @media  (max-width: 360px) {
+    width: 225px;
+  }
+
+  @media  (max-width: 260px) {
+    width: 140px;
+  }
 
   &:focus{
       outline: none;
