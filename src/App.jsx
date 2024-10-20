@@ -1,7 +1,9 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import axios from 'axios'
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom"
 import { jwtDecode } from "jwt-decode"
+import Swal from 'sweetalert2'
+
 import Home from "./pages/Home"
 import UserPortal from "./pages/UserPortal"
 import ProtectedRoute from "./components/ProtectedRoute"
@@ -11,15 +13,15 @@ import SignUp from "./pages/SignUp"
 import PublicRoute from "./components/PublicRoute"
 import FourOFour from "./pages/FourOFour"
 import NavBar from "./components/NavBar"
-import Swal from 'sweetalert2'
+
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
-
 import './App.css'
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
   const [token, setToken] = useState(localStorage.getItem('authToken') || null)
+  const timeoutIdRef = useRef(null)
 
   const handleLogin = (user, jwtToken) => {
     setCurrentUser(user)
@@ -30,49 +32,51 @@ function App() {
       const { exp } = jwtDecode(jwtToken)
       const expirationTime = exp * 1000 - Date.now()
 
-      setTimeout(() => {
-        handleLogout()
+      timeoutIdRef.current = setTimeout(() => {
+        handleLogout(true)
       }, expirationTime)
-    } catch (e) {
+    } catch (error) {
       console.error('Invalid token during login:', error)
       handleLogout()
     }
   }
 
-  const handleLogout = () => {
-    Swal.fire({
-        title: 'Session Timeout',
+  const handleLogout = (isTimeout = false) => {
+    setCurrentUser(null)
+    setToken(null)
+    localStorage.removeItem('authToken')
+    clearTimeout(timeoutIdRef.current)
+
+    if (isTimeout) {
+      Swal.fire({
+        title: 'Session Timed Out',
         text: 'Your session has timed out. Please log in again.',
         icon: 'info',
         confirmButtonText: 'OK',
-        confirmButtonColor: '#cf2e2e' 
-    }).then(() => {
-        setCurrentUser(null)
-        setToken(null)
-        localStorage.removeItem('authToken')
-    })
-}
+        confirmButtonColor: '#3085d6'
+      })
+    }
+  }
 
   useEffect(() => {
     if (token) {
-      try {
-        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
-        const { exp } = jwtDecode(token)
-        const expirationTime = exp * 1000 - Date.now()
+      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
+      const { exp } = jwtDecode(token)
+      const expirationTime = exp * 1000 - Date.now()
 
-        if (expirationTime > 0) {
-          setTimeout(() => {
-            handleLogout()
-          }, expirationTime)
-        } else {
-          handleLogout()
-        }
-      } catch (error) {
-        console.error('Invalid token in useEffect:', error)
-        handleLogout()
+      if (expirationTime > 0) {
+        timeoutIdRef.current = setTimeout(() => {
+          handleLogout(true)
+        }, expirationTime)
+      } else {
+        handleLogout(true)
       }
     } else {
       delete axios.defaults.headers.common['Authorization']
+    }
+
+    return () => {
+      clearTimeout(timeoutIdRef.current)  
     }
   }, [token])
 
