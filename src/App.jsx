@@ -25,32 +25,42 @@ function App() {
     setToken(jwtToken)
     localStorage.setItem('authToken', jwtToken)
 
-    const { exp } = jwtDecode(jwtToken)
-    const expirationTime = exp * 1000 - Date.now()
+    try {
+      const { exp } = jwtDecode(jwtToken)
+      const expirationTime = exp * 1000 - Date.now()
 
-    setTimeout(() => {
-      alert("Your session has timed out. Please log in again.")
+      setTimeout(() => {
+        handleLogout()
+      }, expirationTime)
+    } catch (e) {
+      console.error('Invalid token during login:', error)
       handleLogout()
-    }, expirationTime)
+    }
   }
 
   const handleLogout = () => {
     setCurrentUser(null)
     setToken(null)
     localStorage.removeItem('authToken')
+    alert("Your session has timed out. Please log in again.")
   }
 
   useEffect(() => {
     if (token) {
-      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
-      const { exp } = jwtDecode(token)
-      const expirationTime = exp * 1000 - Date.now()
+      try {
+        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
+        const { exp } = jwtDecode(token)
+        const expirationTime = exp * 1000 - Date.now()
 
-      if (expirationTime > 0) {
-        setTimeout(() => {
+        if (expirationTime > 0) {
+          setTimeout(() => {
+            handleLogout()
+          }, expirationTime)
+        } else {
           handleLogout()
-        }, expirationTime)
-      } else {
+        }
+      } catch (error) {
+        console.error('Invalid token in useEffect:', error)
         handleLogout()
       }
     } else {

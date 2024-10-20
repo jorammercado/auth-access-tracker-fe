@@ -35,17 +35,16 @@ export default function SignUpForm({ setCurrentUser }) {
         })
             .then(response => response.json())
             .then((data) => {
-                if (data.error) {
-                    throw new Error(data.error)
+                if (data?.error) {
+                    throw new Error(data?.error)
                 }
-                else if (data.err) {
-                    throw new Error(data.err)
+                else if (data?.err) {
+                    throw new Error(data?.err)
                 }
                 else {
-                    alert(`User ${data.username} succesfully created`)
-                    localStorage.setItem('authToken', data.token)
-                    setCurrentUser(data.createdUser)
-                    navigate(`/users/${data.createdUser.user_id}/profile`)
+                    alert(`User ${data?.createdUser?.username} succesfully created`)
+                    setCurrentUser(data?.createdUser, data?.token)
+                    navigate(`/users/${data?.createdUser?.user_id}/profile`)
                     setUser({
                         user_id: 0,
                         firstname: "",
