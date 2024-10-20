@@ -40,7 +40,7 @@ const UserInfo = ({ currentUser, setCurrentUser }) => {
                         <tr >
                             <th colSpan="4" className="centered-content">
                                 {
-                                    currentUser.profile_img === "profile image" ?
+                                    currentUser?.profile_img === "profile image" ?
                                         <div style={{ marginTop: "20px", marginBottom: "20px" }}>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" fill="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16">
                                                 <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
@@ -48,7 +48,7 @@ const UserInfo = ({ currentUser, setCurrentUser }) => {
                                             </svg>
                                         </div>
                                         :
-                                        <img className="headshot" src={currentUser.profile_img} />
+                                        <img className="headshot" src={currentUser?.profile_img} />
                                 }
                             </th>
                         </tr>
