@@ -15,6 +15,7 @@ import PublicRoute from "./components/PublicRoute"
 import FourOFour from "./pages/FourOFour"
 import NavBar from "./components/NavBar"
 import ForgotPassword from "./pages/ForgotPassword"
+import ResetPassword from "./pages/ResetPassword"
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
@@ -115,6 +116,15 @@ function App() {
               element={
                 <PublicRoute
                   element={ForgotPassword}
+                  currentUser={currentUser}
+                />
+              }
+            />
+
+            <Route path="/reset-password/:token"
+              element={
+                <PublicRoute
+                  element={ResetPassword}
                   currentUser={currentUser}
                 />
               }

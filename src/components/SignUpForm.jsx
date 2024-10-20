@@ -190,7 +190,7 @@ export default function SignUpForm({ setCurrentUser }) {
                                 <Form.Control
                                     className="edit-style"
                                     name="password"
-                                    type="text"
+                                    type="password"
                                     placeholder="password"
                                     value={user.password}
                                     onChange={handleInputChange}

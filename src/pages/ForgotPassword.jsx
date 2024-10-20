@@ -24,8 +24,12 @@ const ForgotPassword = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        axios.post(`${VITE_API_URL}/forgot-password`, {
+        axios.post(`${VITE_API_URL}/auth/forgot-password`, {
             email
+        }, {
+            headers: {
+                'Authorization': ''//remove token
+            }
         })
             .then(res => {
                 Swal.fire({
@@ -39,7 +43,7 @@ const ForgotPassword = () => {
                 })
             })
             .catch(err => {
-                console.error(err?.response?.data?.error)
+                console.error(err, err?.response?.data?.error)
                 processLoginErrors(err?.response?.data?.error)
             })
     }
