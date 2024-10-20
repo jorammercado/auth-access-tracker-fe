@@ -10,7 +10,13 @@ const UserInfo = ({ currentUser, setCurrentUser }) => {
     const navigate = useNavigate()
 
     const handleDelete = () => {
-        const httpOptions = { method: "DELETE" }
+        const token = localStorage.getItem('authToken')
+        const httpOptions = {
+            method: "DELETE",
+            headers: {
+                "Authorization": `Bearer ${token}` 
+            }
+        }
         fetch(`${API}/users/${currentUser.user_id}`, httpOptions)
             .then((res) => res.json())
             .then(data => {
@@ -46,46 +52,46 @@ const UserInfo = ({ currentUser, setCurrentUser }) => {
                                 }
                             </th>
                         </tr>
-                         <tr>
-                    <th colSpan="4">
-                        <div className="row-content">
-                            <span className="label">Full Name:</span>
-                            <span className="value">{currentUser.firstname} {currentUser.lastname}</span>
-                        </div>
-                    </th>
-                </tr>
-                <tr>
-                    <th colSpan="4">
-                        <div className="row-content">
-                            <span className="label">Email:</span>
-                            <span className="value">{currentUser.email}</span>
-                        </div>
-                    </th>
-                </tr>
-                <tr>
-                    <th colSpan="4">
-                        <div className="row-content">
-                            <span className="label">Username:</span>
-                            <span className="value">{currentUser.username}</span>
-                        </div>
-                    </th>
-                </tr>
-                <tr>
-                    <th colSpan="4">
-                        <div className="row-content">
-                            <span className="label">DOB:</span>
-                            <span className="value">{currentUser.dob}</span>
-                        </div>
-                    </th>
-                </tr>
-                <tr>
-                    <th colSpan="4">
-                        <div className="row-content">
-                            <span className="label">Member Since:</span>
-                            <span className="value">{currentUser.registration_date.split("T")[0]},&nbsp;&nbsp;{currentUser.registration_date.split("T")[1].replace("Z"," UTC")}</span>
-                        </div>
-                    </th>
-                </tr>
+                        <tr>
+                            <th colSpan="4">
+                                <div className="row-content">
+                                    <span className="label">Full Name:</span>
+                                    <span className="value">{currentUser.firstname} {currentUser.lastname}</span>
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th colSpan="4">
+                                <div className="row-content">
+                                    <span className="label">Email:</span>
+                                    <span className="value">{currentUser.email}</span>
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th colSpan="4">
+                                <div className="row-content">
+                                    <span className="label">Username:</span>
+                                    <span className="value">{currentUser.username}</span>
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th colSpan="4">
+                                <div className="row-content">
+                                    <span className="label">DOB:</span>
+                                    <span className="value">{currentUser.dob}</span>
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th colSpan="4">
+                                <div className="row-content">
+                                    <span className="label">Member Since:</span>
+                                    <span className="value">{currentUser.registration_date.split("T")[0]},&nbsp;&nbsp;{currentUser.registration_date.split("T")[1].replace("Z", " UTC")}</span>
+                                </div>
+                            </th>
+                        </tr>
                     </tbody>
                 </table>
                 <div className="show-navigation">
@@ -96,6 +102,7 @@ const UserInfo = ({ currentUser, setCurrentUser }) => {
                         delete account
                     </ProfileButton>
                     <ProfileButton onClick={() => {
+                        localStorage.removeItem('authToken')
                         setCurrentUser(null)
                         navigate(`/`)
                     }}>
