@@ -25,6 +25,7 @@ const UserInfo = ({ currentUser, setCurrentUser }) => {
                 else if (data?.err)
                     throw new Error(data?.err)
                 else {
+                    localStorage.removeItem('authToken')
                     setCurrentUser(null)
                     navigate("/login")
                 }
