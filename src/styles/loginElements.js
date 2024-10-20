@@ -273,6 +273,34 @@ export const OkButton = styled.button`
   }
 `
 
+export const OkButtonPasswordReset = styled.button`
+  width: 300px;
+  margin-bottom: -5px;
+  margin-top: 20px;
+  height: 50px;
+  background: #cf2e2e;
+  border: none;
+  border-radius: 10px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 23px;
+  color: #FFFFFF;
+  cursor: pointer;
+
+  @media screen and (max-width: 480px) {
+    margin-bottom: -25px;
+  }
+
+  @media screen and (max-width: 350px) {
+    width: 250px;
+  }
+
+  &:focus{
+      outline: none;
+  }
+`
+
 export const ProfileButton = styled.button`  
   width: 130px;
   height: 50px;

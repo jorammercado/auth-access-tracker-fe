@@ -52,17 +52,13 @@ function App() {
 
     if (isTimeout) {
       Swal.fire({
-        title: 'Session Timed Out',
         text: 'Your session has timed out. Please log in again.',
-        icon: 'info',
         confirmButtonText: 'OK',
         confirmButtonColor: '#cf2e2e'
       })
     } else {
       Swal.fire({
-        title: 'Logged Out',
         text: 'You have been successfully logged out.',
-        icon: 'success',
         confirmButtonText: 'OK',
         confirmButtonColor: '#cf2e2e'
       })

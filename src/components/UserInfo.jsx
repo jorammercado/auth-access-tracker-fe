@@ -27,9 +27,7 @@ const UserInfo = ({ currentUser, setCurrentUser, setToken, handleLogout }) => {
                     throw new Error(data?.err)
                 else {
                     Swal.fire({
-                        title: 'Deleted!',
-                        text: 'Your account has been deleted.',
-                        icon: 'success',
+                        text: 'Your account has been deleted!',
                         confirmButtonText: 'OK',
                         confirmButtonColor: '#cf2e2e' 
                     }).then(() => {

@@ -45,9 +45,7 @@ export default function SignUpForm({ setCurrentUser }) {
                 }
                 else {
                     Swal.fire({
-                        title: 'Success!',
                         text: `User ${data?.createdUser?.username} successfully created`,
-                        icon: 'success',
                         confirmButtonText: 'OK',
                         confirmButtonColor: '#cf2e2e'
                     }).then(() => {
@@ -68,9 +66,7 @@ export default function SignUpForm({ setCurrentUser }) {
             })
             .catch((error) => {
                 Swal.fire({
-                    title: 'Error',
                     text: error.message,
-                    icon: 'error',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#cf2e2e'
                 })
@@ -93,9 +89,7 @@ export default function SignUpForm({ setCurrentUser }) {
         e.preventDefault()
         if (user.password !== confirmPassword) {
             Swal.fire({
-                title: 'Error',
                 text: 'Passwords do not match. Please try again.',
-                icon: 'error',
                 confirmButtonText: 'OK',
                 confirmButtonColor: '#cf2e2e'
             })

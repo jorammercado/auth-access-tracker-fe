@@ -38,9 +38,7 @@ export default function UserInfoEditForm({ setCurrentUser, currentUser }) {
                 }
                 else {
                     Swal.fire({
-                        title: 'Success!',
                         text: `User ${data.username} successfully updated`,
-                        icon: 'success',
                         confirmButtonText: 'OK',
                         confirmButtonColor: '#cf2e2e'
                     }).then(() => {
@@ -51,9 +49,7 @@ export default function UserInfoEditForm({ setCurrentUser, currentUser }) {
             })
             .catch((error) => {
                 Swal.fire({
-                    title: 'Error',
                     text: error.message,
-                    icon: 'error',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#cf2e2e'
                 })

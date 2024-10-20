@@ -4,7 +4,7 @@ import {
     LoginLabel,
     ErrorList,
     LoginButton,
-    OkButton,
+    OkButtonPasswordReset,
     ForgotPasswordHeader,
     ForgotPasswordSubHeader,
     FormInputForgotEmail
@@ -21,9 +21,18 @@ const ForgotPassword = () => {
     const navigate = useNavigate()
     const [email, setEmail] = useState('')
     const [errors, setErrors] = useState([])
+    const [loading, setLoading] = useState(false)
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+
+        const emailErrors = validatesEmail()
+        if (emailErrors.length > 0) {
+            setErrors(emailErrors)
+            return
+        }
+
+        setLoading(true)
         axios.post(`${VITE_API_URL}/auth/forgot-password`, {
             email
         }, {
@@ -32,10 +41,9 @@ const ForgotPassword = () => {
             }
         })
             .then(res => {
+                setLoading(false)
                 Swal.fire({
-                    title: 'Success!',
-                    text: 'Password reset instructions have been sent to your email.',
-                    icon: 'success',
+                    text: 'If an account is associated with this email, a reset link was sent.',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#cf2e2e'
                 }).then(() => {
@@ -43,6 +51,7 @@ const ForgotPassword = () => {
                 })
             })
             .catch(err => {
+                setLoading(false)
                 console.error(err, err?.response?.data?.error)
                 processLoginErrors(err?.response?.data?.error)
             })
@@ -60,19 +69,17 @@ const ForgotPassword = () => {
 
 
     const validatesEmail = () => {
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
         const emailErrors = []
 
-        if (!email.length) {
+        if (!email?.length)
             emailErrors.push('Email is required.')
-            return emailErrors
-        }
 
-        if (email.split(".").length !== 2 || email.split("@").length !== 2) {
-            emailErrors.push(`Email must contain one '@' and one '.'`)
-        }
-        if (email.length < 5 || email.length > 150) {
-            emailErrors.push('Email must be between 5 and 150 characters.')
-        }
+        if (!emailRegex.test(email))
+            emailErrors.push(`Invalid email format. Please enter a valid email address, e.g., example@domain.com.`)
+
+        if (email?.length < 6 || email?.length > 150)
+            emailErrors.push('Email must be between 6 and 150 characters.')
 
         return emailErrors
     }
@@ -82,25 +89,29 @@ const ForgotPassword = () => {
         <div >
             <LoginBackground onSubmit={handleSubmit}>
                 {
-                    !errors.length ?
-                        <>
-                            <LoginLabel>
-                                <ForgotPasswordHeader>Forgot Your Password</ForgotPasswordHeader>
-                                <ForgotPasswordSubHeader>Please enter your email address. If we have an account associated with it, you'll receive password reset instructions.</ForgotPasswordSubHeader>
-                            </LoginLabel>
-                            <FormInputForgotEmail type="text" onChange={e => setEmail(e.currentTarget.value)} placeholder="Email" />
+                    loading ?
+                        <div className="spinner-container">
+                            <div className="loading-spinner"></div>
+                        </div> :
+                        !errors.length ?
+                            <>
+                                <LoginLabel>
+                                    <ForgotPasswordHeader>Forgot Your Password</ForgotPasswordHeader>
+                                    <ForgotPasswordSubHeader>Please enter your email address. If we have an account associated with it, you'll receive password reset instructions.</ForgotPasswordSubHeader>
+                                </LoginLabel>
+                                <FormInputForgotEmail type="text" onChange={e => setEmail(e.currentTarget.value)} placeholder="Email" />
 
-                            <LoginButton >{'Request Reset Link'}</LoginButton>
-                            <Link to="/login" className="forgot-password-link">Back To Login</Link>
-                        </> :
-                        <>
-                            <ErrorList>
-                                {errors.length > 0 ? errors.map((error, i) => <li key={`${i}`}>&nbsp;{error}</li>) : ""}
-                            </ErrorList>
-                            <OkButton onClick={handleOk}>
-                                OK
-                            </OkButton>
-                        </>
+                                <LoginButton >{'Request Reset Link'}</LoginButton>
+                                <Link to="/login" className="forgot-password-link">Back To Login</Link>
+                            </> :
+                            <>
+                                <ErrorList>
+                                    {errors.length > 0 ? errors.map((error, i) => <li key={`${i}`}>&nbsp;{error}</li>) : ""}
+                                </ErrorList>
+                                <OkButtonPasswordReset onClick={handleOk}>
+                                    OK
+                                </OkButtonPasswordReset>
+                            </>
                 }
             </LoginBackground>
         </div>

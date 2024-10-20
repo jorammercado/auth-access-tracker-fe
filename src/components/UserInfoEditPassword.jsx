@@ -45,9 +45,7 @@ export default function UserInfoEditForm({ setCurrentUser, currentUser }) {
                 }
                 else {
                     Swal.fire({
-                        title: 'Success!',
                         text: `User ${data?.username} successfully updated`,
-                        icon: 'success',
                         confirmButtonText: 'OK',
                         confirmButtonColor: '#cf2e2e'
                     }).then(() => {
@@ -58,9 +56,7 @@ export default function UserInfoEditForm({ setCurrentUser, currentUser }) {
             })
             .catch((error) => {
                 Swal.fire({
-                    title: 'Error',
                     text: error?.message,
-                    icon: 'error',
                     confirmButtonText: 'OK',
                     confirmButtonColor: '#d33'
                 })
@@ -81,9 +77,7 @@ export default function UserInfoEditForm({ setCurrentUser, currentUser }) {
         e.preventDefault()
         if (passwords.newPassword !== passwords.confirmPassword) {
             Swal.fire({
-                title: 'Error',
                 text: 'New password and confirm password do not match.',
-                icon: 'error',
                 confirmButtonText: 'OK',
                 confirmButtonColor: '#d33'
             });
