@@ -3,8 +3,8 @@ import styled from 'styled-components'
 export const SignUpBackground = styled.div`
   position: absolute;
   width: 450px;
-  height: 520px;
-  top: 51%;
+  height: 545px;
+  top: 51.5%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: #212529;
@@ -18,13 +18,13 @@ export const SignUpBackground = styled.div`
               rgba(0, 0, 0, 0.17) 0px 12px 13px, 
               rgba(0, 0, 0, 0.09) 0px -3px 5px;
   border-radius: 10px;
-  padding: 0 0 77px 0;
+  padding: 0 0 40px 0;
   box-sizing: border-box;
 
   @media screen and (max-width: 480px) {
     position: fixed;
     width: 90%;
-    height: 65%;
+    height: 75%;
     padding-bottom: 45px;
     box-shadow: none;
   }
@@ -80,7 +80,8 @@ export const SignUpButton = styled.button`
   font-size: 20px;
   line-height: 23px;
   cursor: pointer;
-  margin-top: -30px;
+  margin-top: 25px;
+  
 
   &:focus{
       outline: none;

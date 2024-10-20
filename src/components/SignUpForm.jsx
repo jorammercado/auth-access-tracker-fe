@@ -24,6 +24,7 @@ export default function SignUpForm({ setCurrentUser }) {
         dob: "",
         registration_date: ""
     })
+    const [confirmPassword, setConfirmPassword] = useState("")
     const navigate = useNavigate()
 
     const addUser = () => {
@@ -71,7 +72,7 @@ export default function SignUpForm({ setCurrentUser }) {
                     text: error.message,
                     icon: 'error',
                     confirmButtonText: 'OK',
-                    confirmButtonColor: '#d33'
+                    confirmButtonColor: '#cf2e2e'
                 })
                 console.error(error)
             })
@@ -83,11 +84,24 @@ export default function SignUpForm({ setCurrentUser }) {
             ...user,
             [name]: type === "checkbox" ? checked : value,
         })
+        if (name === "confirm-password") {
+            setConfirmPassword(value)
+        }
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        addUser()
+        if (user.password !== confirmPassword) {
+            Swal.fire({
+                title: 'Error',
+                text: 'Passwords do not match. Please try again.',
+                icon: 'error',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#cf2e2e'
+            })
+        } else {
+            addUser()
+        }
     }
 
     return (
@@ -198,7 +212,24 @@ export default function SignUpForm({ setCurrentUser }) {
                             </InputGroup>
                         </Form.Group>
                     </Row>
-                    <br></br>
+                    <Row className="mb-3">
+                        <Form.Group as={Col} controlId="confirm-password">
+                            <InputGroup>
+                                <InputGroup.Text >
+                                    <i className="bi bi-shield-lock  "></i>
+                                </InputGroup.Text>
+                                <Form.Control
+                                    className="edit-style"
+                                    name="confirm-password"
+                                    type="password"
+                                    placeholder="confirm password"
+                                    value={confirmPassword}
+                                    onChange={handleInputChange}
+                                />
+                            </InputGroup>
+                        </Form.Group>
+                    </Row>
+
                     <SignUpButton type="submit">
                         Create User
                     </SignUpButton>
