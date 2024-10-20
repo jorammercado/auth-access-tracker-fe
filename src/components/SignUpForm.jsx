@@ -43,8 +43,9 @@ export default function SignUpForm({ setCurrentUser }) {
                 }
                 else {
                     alert(`User ${data.username} succesfully created`)
-                    setCurrentUser(data)
-                    navigate(`/users/${data.user_id}/profile`)
+                    localStorage.setItem('authToken', data.token)
+                    setCurrentUser(data.createdUser)
+                    navigate(`/users/${data.createdUser.user_id}/profile`)
                     setUser({
                         user_id: 0,
                         firstname: "",
