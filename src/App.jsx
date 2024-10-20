@@ -8,6 +8,7 @@ import Home from "./pages/Home"
 import UserPortal from "./pages/UserPortal"
 import ProtectedRoute from "./components/ProtectedRoute"
 import UserInfoEditForm from "./components/UserInfoEditForm"
+import UserInfoEditPassword from "./components/UserInfoEditPassword"
 import Login from "./pages/Login"
 import SignUp from "./pages/SignUp"
 import PublicRoute from "./components/PublicRoute"
@@ -49,21 +50,21 @@ function App() {
 
     if (isTimeout) {
       Swal.fire({
-          title: 'Session Timed Out',
-          text: 'Your session has timed out. Please log in again.',
-          icon: 'info',
-          confirmButtonText: 'OK',
-          confirmButtonColor: '#3085d6'
+        title: 'Session Timed Out',
+        text: 'Your session has timed out. Please log in again.',
+        icon: 'info',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#3085d6'
       })
-  } else {
+    } else {
       Swal.fire({
-          title: 'Logged Out',
-          text: 'You have been successfully logged out.',
-          icon: 'success',
-          confirmButtonText: 'OK',
-          confirmButtonColor: '#3085d6'
+        title: 'Logged Out',
+        text: 'You have been successfully logged out.',
+        icon: 'success',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#3085d6'
       })
-  }
+    }
   }
 
   useEffect(() => {
@@ -84,7 +85,7 @@ function App() {
     }
 
     return () => {
-      clearTimeout(timeoutIdRef.current)  
+      clearTimeout(timeoutIdRef.current)
     }
   }, [token])
 
@@ -134,6 +135,17 @@ function App() {
               element={
                 <ProtectedRoute
                   element={UserInfoEditForm}
+                  currentUser={currentUser}
+                  setCurrentUser={setCurrentUser}
+                />
+              }
+            />
+
+            <Route
+              path="/users/:user_id/profile/password"
+              element={
+                <ProtectedRoute
+                  element={UserInfoEditPassword}
                   currentUser={currentUser}
                   setCurrentUser={setCurrentUser}
                 />

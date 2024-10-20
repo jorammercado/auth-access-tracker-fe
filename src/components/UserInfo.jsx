@@ -106,8 +106,11 @@ const UserInfo = ({ currentUser, setCurrentUser, setToken, handleLogout }) => {
                     </tbody>
                 </table>
                 <div className="show-navigation">
-                    <ProfileButton onClick={() => { navigate(`/users/${currentUser?.user_id}/profile/edit`) }}>
+                <ProfileButton onClick={() => { navigate(`/users/${currentUser?.user_id}/profile/edit`) }}>
                         edit
+                    </ProfileButton>
+                    <ProfileButton onClick={() => { navigate(`/users/${currentUser?.user_id}/profile/password`) }}>
+                        update password
                     </ProfileButton>
                     <ProfileButton onClick={handleDelete}>
                         delete account
