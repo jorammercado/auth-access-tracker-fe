@@ -14,6 +14,7 @@ import SignUp from "./pages/SignUp"
 import PublicRoute from "./components/PublicRoute"
 import FourOFour from "./pages/FourOFour"
 import NavBar from "./components/NavBar"
+import ForgotPassword from "./pages/ForgotPassword"
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
@@ -54,7 +55,7 @@ function App() {
         text: 'Your session has timed out. Please log in again.',
         icon: 'info',
         confirmButtonText: 'OK',
-        confirmButtonColor: '#3085d6'
+        confirmButtonColor: '#cf2e2e'
       })
     } else {
       Swal.fire({
@@ -62,7 +63,7 @@ function App() {
         text: 'You have been successfully logged out.',
         icon: 'success',
         confirmButtonText: 'OK',
-        confirmButtonColor: '#3085d6'
+        confirmButtonColor: '#cf2e2e'
       })
     }
   }
@@ -106,6 +107,15 @@ function App() {
                   element={Login}
                   currentUser={currentUser}
                   setCurrentUser={handleLogin}
+                />
+              }
+            />
+
+            <Route path="/forgot-password"
+              element={
+                <PublicRoute
+                  element={ForgotPassword}
+                  currentUser={currentUser}
                 />
               }
             />

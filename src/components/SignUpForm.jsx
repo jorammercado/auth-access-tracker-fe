@@ -48,7 +48,7 @@ export default function SignUpForm({ setCurrentUser }) {
                         text: `User ${data?.createdUser?.username} successfully created`,
                         icon: 'success',
                         confirmButtonText: 'OK',
-                        confirmButtonColor: '#3085d6'
+                        confirmButtonColor: '#cf2e2e'
                     }).then(() => {
                         setCurrentUser(data?.createdUser, data?.token)
                         navigate(`/users/${data?.createdUser?.user_id}/profile`)

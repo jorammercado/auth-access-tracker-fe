@@ -9,7 +9,8 @@ import {
 } from '../styles/loginElements'
 import { useState } from 'react'
 import axios from 'axios'
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
+import "./Login.css"
 
 const VITE_API_URL = import.meta.env.VITE_API_URL
 
@@ -101,6 +102,7 @@ const Login = ({ setCurrentUser }) => {
                             <FormInput type="text" onChange={e => setEmail(e.currentTarget.value)} placeholder="Email" />
                             <FormInput type="password" onChange={e => setPassword(e.currentTarget.value)} placeholder="Password" />
                             <LoginButton >{'Sign In'}</LoginButton>
+                            <Link to="/forgot-password" className="forgot-password-link">Forgot Password?</Link>
                         </> :
                         <>
                             <ErrorList>

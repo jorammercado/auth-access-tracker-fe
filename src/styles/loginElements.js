@@ -67,6 +67,65 @@ export const LoginHeader = styled.h2`
   }
 `
 
+export const ForgotPasswordHeader = styled.h2`
+  width: 277px;
+  height: 30px;
+  font-size: 30px;
+  line-height: 30px;
+  text-align: center;
+  margin-bottom: 50px;
+  margin-top: -125px;
+  color: #f2f2f2;
+
+  @media screen and (max-width: 480px) {
+    width: 299px;
+    font-size: 26px;
+    margin-bottom: 40px;
+    line-height: 35px;
+    text-align: center;
+    color: #FFFFFF;
+  }
+
+  @media  (max-width: 360px) {
+    font-size: 22px;
+  }
+
+  @media  (max-width: 260px) {
+    font-size: 15px;
+  }
+`
+
+export const ForgotPasswordSubHeader = styled.h2`
+  width: 307px;
+  height: 30px;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: left;
+  margin-bottom: 40px;
+  margin-top: -35px;
+  color: #f2f2f2;
+
+  @media screen and (max-width: 480px) {
+    width: 300px;
+    font-size: 11px;
+    margin-top: -25px;
+    line-height: 15px;
+  }
+
+  @media  (max-width: 360px) {
+    width: 225px;
+    
+    margin-top: -25px;
+    line-height: 11px;
+  }
+
+  @media  (max-width: 260px) {
+    width: 150px;
+    line-height: 9px;
+    font-size: 7px;
+  }
+`
+
 export const ErrorList = styled.ul`
   font-style: normal;
   font-size: 23px;
@@ -115,6 +174,45 @@ export const FormInput = styled.input`
 
   @media  (max-width: 360px) {
     width: 225px;
+  }
+
+  @media  (max-width: 260px) {
+    width: 140px;
+  }
+`
+
+export const FormInputForgotEmail = styled.input`
+  width: 300px;
+  height: 50px;
+  background: #F8F5F5;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 15px;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 23px;
+  color: rgba(0, 0, 0, 0.6);
+  padding-left:25px;
+
+  &:focus{
+    outline: none;
+  }
+
+  &::placeholder{
+    font-weight: normal;
+  }
+
+  @media screen and (max-width: 480px) {
+
+    &:focus{
+      box-shadow: 0px 4px 3px 0px rgb(51 51 51 / 40%);
+      background: #FFFFFF;
+    }
+  }
+
+  @media  (max-width: 360px) {
+    width: 225px;
+    margin-top: -25px;
   }
 
   @media  (max-width: 260px) {
@@ -188,6 +286,26 @@ export const ProfileButton = styled.button`
 
   background-color: #cf2e2e;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  @media (max-width: 570px) {
+    height: 40px;
+    width: 120px;
+    font-size: 16px;
+  }
+
+  @media (max-width: 485px) {
+    height: 35px;
+    width: 105px;
+    font-size: 13px;
+    line-height: 15px;
+  }
+
+  @media (max-width: 445px) {
+    height: 30px;
+    width: 95px;
+    font-size: 11px;
+    line-height: 15px;
+  }
 `
 
 export const EditButton = styled.button`  

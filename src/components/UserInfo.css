@@ -14,38 +14,78 @@
     margin-top: 45px;
     margin-bottom: 10px;
     font-size: 24px;
+
+    @media (max-width: 425px) {
+        max-height: 77vh;
+        margin-top: 10px;
+    }
+
+    @media (max-width: 350px) {
+        margin-left: auto;
+    }
 }
 
-.table td, .table th {
-    font-family:'Times New Roman', Times, serif;
-    font-size: 19px; 
+.table td,
+.table th {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 19px;
     font-weight: normal;
     text-align: left;
 }
 
 .centered-content {
     display: flex;
-    justify-content: center; 
+    justify-content: center;
+
+    @media (max-width: 570px) {
+        max-height: 120px;
+    }
 }
 
 .row-content {
     display: flex;
-    justify-content: flex-start; 
-    align-items: center; 
+    justify-content: flex-start;
+    align-items: center;
     width: 100%;
-    padding-top: 2px; 
+    padding-top: 2px;
     padding-bottom: 2px;
     margin-left: 20px;
+
+    @media (max-width: 570px) {
+        font-size: 15px;
+    }
+
+    @media (max-width: 460px) {
+        font-size: 14px;
+    }
+
+    @media (max-width: 400px) {
+        font-size: 13px;
+    }
+
+    @media (max-width: 385px) {
+        font-size: 12px;
+    }
+
+    @media (max-width: 360px) {
+        font-size: 11px;
+    }
 }
 
 .label {
-    flex: 1; 
+    flex: 1;
     font-weight: bold;
     text-align: left;
+    @media (max-width: 385px) {
+        flex: 0;
+    }
 }
 
 .value {
-    flex: 2; 
+    flex: 2;
     text-align: left;
-    margin-left: 1rem; 
+    margin-left: 1rem;
+    @media (max-width: 385px) {
+        flex: 1;
+    }
 }

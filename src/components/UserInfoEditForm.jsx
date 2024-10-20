@@ -55,7 +55,7 @@ export default function UserInfoEditForm({ setCurrentUser, currentUser }) {
                     text: error.message,
                     icon: 'error',
                     confirmButtonText: 'OK',
-                    confirmButtonColor: '#d33'
+                    confirmButtonColor: '#cf2e2e'
                 })
                 console.error(error)
             })
