@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom"
+import * as jwt_decode from 'jwt-decode'
 import Home from "./pages/Home"
 import UserPortal from "./pages/UserPortal"
 import ProtectedRoute from "./components/ProtectedRoute"
@@ -23,6 +24,13 @@ function App() {
     setCurrentUser(user)
     setToken(jwtToken)
     localStorage.setItem('authToken', jwtToken)
+
+    const { exp } = jwt_decode(jwtToken)
+    const expirationTime = exp * 1000 - Date.now()
+
+    setTimeout(() => {
+      handleLogout()
+    }, expirationTime)
   }
 
   const handleLogout = () => {
@@ -34,6 +42,16 @@ function App() {
   useEffect(() => {
     if (token) {
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
+      const { exp } = jwt_decode(token)
+      const expirationTime = exp * 1000 - Date.now()
+
+      if (expirationTime > 0) {
+        setTimeout(() => {
+          handleLogout()
+        }, expirationTime)
+      } else {
+        handleLogout()
+      }
     } else {
       delete axios.defaults.headers.common['Authorization']
     }
