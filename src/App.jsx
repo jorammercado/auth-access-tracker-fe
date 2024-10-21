@@ -16,6 +16,8 @@ import FourOFour from "./pages/FourOFour"
 import NavBar from "./components/NavBar"
 import ForgotPassword from "./pages/ForgotPassword"
 import ResetPassword from "./pages/ResetPassword"
+import MultiFactorAuth from './pages/MultiFactorAuth'
+import LoginMFA from './pages/LoginMFA'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
@@ -104,6 +106,17 @@ function App() {
                   element={Login}
                   currentUser={currentUser}
                   setCurrentUser={handleLogin}
+                />
+              }
+            />
+
+            <Route
+              path="/users/:user_id/verify-otp-login"
+              element={
+                <ProtectedRoute
+                  element={MultiFactorAuth}
+                  currentUser={currentUser}
+                  setCurrentUser={setCurrentUser}
                 />
               }
             />
