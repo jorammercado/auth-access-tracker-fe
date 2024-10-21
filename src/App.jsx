@@ -16,7 +16,7 @@ import FourOFour from "./pages/FourOFour"
 import NavBar from "./components/NavBar"
 import ForgotPassword from "./pages/ForgotPassword"
 import ResetPassword from "./pages/ResetPassword"
-import MultiFactorAuth from './pages/MultiFactorAuth'
+import VerifyOTPLogin from './pages/VerifyOTPLogin'
 import LoginMFA from './pages/LoginMFA'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -103,7 +103,7 @@ function App() {
             <Route path="/login"
               element={
                 <PublicRoute
-                  element={Login}
+                  element={LoginMFA}
                   currentUser={currentUser}
                   setCurrentUser={handleLogin}
                 />
@@ -114,7 +114,7 @@ function App() {
               path="/users/:user_id/verify-otp-login"
               element={
                 <PublicRoute
-                  element={MultiFactorAuth}
+                  element={VerifyOTPLogin}
                   currentUser={currentUser}
                   setCurrentUser={handleLogin}
                 />

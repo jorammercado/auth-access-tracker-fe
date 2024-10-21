@@ -143,6 +143,24 @@ export const ErrorList = styled.ul`
   }
 `
 
+export const BigErrorList = styled.ul`
+  font-style: normal;
+  font-size: 15px;
+  line-height: 15px;
+  text-align: center;
+  color: #f2f2f2;
+  width:300px;
+  margin-bottom: 50px;
+
+  @media screen and (max-width: 480px) {
+    width: 299px;
+    font-size: 16px;
+    line-height: 25px;
+    text-align: center;
+    color: #FFFFFF;
+  }
+`
+
 export const FormInput = styled.input`
   width: 300px;
   height: 50px;

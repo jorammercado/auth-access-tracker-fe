@@ -2,7 +2,7 @@ import {
     LoginBackground,
     LoginHeader,
     LoginLabel,
-    ErrorList,
+    BigErrorList,
     FormInput,
     LoginButton,
     OkButton
@@ -72,17 +72,17 @@ const LoginMFA = ({ setCurrentUser }) => {
             setErrors([...emailErrors, ...passwordErrors])
             return
         }
+        setLoading(true)
         try {
-            setLoading(true)
             const res = await axios.post(`${VITE_API_URL}/users/login-initiate`, {
                 email,
                 password
             })
             setLoading(false)
-            if (res.data.error)
-                throw new Error(res.data.error)
-            if (res.data.err)
-                throw new Error(res.data.err)
+            if (res?.data?.error)
+                throw new Error(res?.data?.error)
+            if (res?.data?.err)
+                throw new Error(res?.data?.err)
             Swal.fire({
                 text: `OTP has been sent to your email. Please verify to continue.`,
                 confirmButtonText: 'OK',
@@ -92,9 +92,11 @@ const LoginMFA = ({ setCurrentUser }) => {
                 navigate(`/users/${res.data.user_id}/verify-otp-login`)
             })
         } catch (err) {
+            setLoading(false)
             console.error(err?.response?.data?.error)
             processLoginErrors(err?.response?.data?.error)
         }
+        setLoading(false)
     }
 
     const processLoginErrors = (serverRes) => {
@@ -132,9 +134,9 @@ const LoginMFA = ({ setCurrentUser }) => {
                                 <Link to="/forgot-password" className="forgot-password-link">Forgot Password?</Link>
                             </> :
                             <>
-                                <ErrorList>
+                                <BigErrorList>
                                     {errors.length > 0 ? errors.map((error, i) => <li key={`${i}`}>&nbsp;{error}</li>) : ""}
-                                </ErrorList>
+                                </BigErrorList>
                                 <OkButton onClick={handleOk}>
                                     OK
                                 </OkButton>
