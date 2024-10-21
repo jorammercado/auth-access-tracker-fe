@@ -350,3 +350,42 @@ export const EditButton = styled.button`
   background-color: #cf2e2e;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 `
+
+export const ResetPasswordButton = styled.button`  
+  width: 260px;
+  height: 50px;
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 30px;
+
+  background-color: #cf2e2e;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  @media (max-width: 400px) {
+    width: 250px;
+  }
+  @media (max-width: 370px) {
+    width: 210px;
+  }
+  @media (max-width: 340px) {
+    width: 190px;
+  }
+  @media (max-width: 310px) {
+    width: 170px;
+  }
+  @media (max-width: 280px) {
+    width: 150px;
+    font-size: 15px;
+  }
+  @media (max-width: 260px) {
+    width: 130px;
+    font-size: 13px;
+  }
+  @media (max-width: 230px) {
+    width: 100px;
+    font-size: 13px;
+  }
+`

@@ -58,7 +58,7 @@ export default function UserInfoEditForm({ setCurrentUser, currentUser }) {
                 Swal.fire({
                     text: error?.message,
                     confirmButtonText: 'OK',
-                    confirmButtonColor: '#d33'
+                    confirmButtonColor: '#cf2e2e'
                 })
                 console.error(error)
             })
@@ -79,7 +79,7 @@ export default function UserInfoEditForm({ setCurrentUser, currentUser }) {
             Swal.fire({
                 text: 'New password and confirm password do not match.',
                 confirmButtonText: 'OK',
-                confirmButtonColor: '#d33'
+                confirmButtonColor: '#cf2e2e'
             });
         } else {
             editUser()
