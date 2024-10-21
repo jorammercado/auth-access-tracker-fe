@@ -105,7 +105,6 @@ export default function UserInfoEditForm() {
                         confirmButtonText: 'OK',
                         confirmButtonColor: '#cf2e2e'
                     }).then(() => {
-                    
                         navigate(`/login`)
                     })
                 }
@@ -117,6 +116,7 @@ export default function UserInfoEditForm() {
                     confirmButtonColor: '#cf2e2e'
                 })
                 console.error(error)
+                navigate(`/login`)
             })
     }
 
