@@ -113,10 +113,10 @@ function App() {
             <Route
               path="/users/:user_id/verify-otp-login"
               element={
-                <ProtectedRoute
+                <PublicRoute
                   element={MultiFactorAuth}
                   currentUser={currentUser}
-                  setCurrentUser={setCurrentUser}
+                  setCurrentUser={handleLogin}
                 />
               }
             />
