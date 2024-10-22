@@ -54,7 +54,7 @@ const VerifyOtpLogin = ({ setCurrentUser }) => {
                 throw new Error(res.data.err)
 
             Swal.fire({
-                text: `OTP verified successfully! Redirecting to your profile...`,
+                text: `Success! Redirecting to your profile...`,
                 confirmButtonText: 'OK',
                 confirmButtonColor: '#cf2e2e'
             }).then(() => {

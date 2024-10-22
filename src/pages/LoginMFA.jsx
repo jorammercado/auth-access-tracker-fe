@@ -44,21 +44,6 @@ const LoginMFA = ({ setCurrentUser }) => {
         if (!password?.length)
             passwordErrors.push('Password is required.')
 
-        if (!/\d/.test(password))
-            passwordErrors.push('Password must contain at least one digit.')
-
-        if (password.length < 8 || password.length > 150)
-            passwordErrors.push('Password must be between 8 and 150 characters.')
-
-        if (!/(?=.*[a-z])/.test(password))
-            passwordErrors.push("Password must contain at least one lowercase letter.")
-
-        if (!/(?=.*[A-Z])/.test(password))
-            passwordErrors.push("Password must contain at least one uppercase letter.")
-
-        if (!/(?=.*[\W_])/.test(password))
-            passwordErrors.push("Password must contain at least one special character.")
-
         return passwordErrors
     }
 

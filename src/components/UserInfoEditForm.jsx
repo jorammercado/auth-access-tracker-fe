@@ -38,7 +38,7 @@ export default function UserInfoEditForm({ setCurrentUser, currentUser }) {
                 }
                 else {
                     Swal.fire({
-                        text: `User ${data.username} successfully updated`,
+                        text: `User ${data.username} successfully updated!`,
                         confirmButtonText: 'OK',
                         confirmButtonColor: '#cf2e2e'
                     }).then(() => {
