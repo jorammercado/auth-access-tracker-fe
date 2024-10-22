@@ -93,8 +93,28 @@ const LoginMFA = ({ setCurrentUser }) => {
             })
         } catch (err) {
             setLoading(false)
-            console.error(err?.response?.data?.error)
-            processLoginErrors(err?.response?.data?.error)
+            if (err?.response?.status === 403) {
+                Swal.fire({
+                    title: 'Account Locked',
+                    text: err.response.data.error,
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#cf2e2e'
+                }).then(() => {
+                    navigate(`/login`)
+                })
+            } else if (err?.response?.status === 400) {
+                const remainingAttempts = err?.response?.data?.remainingAttempts
+                let errorMessage = err?.response?.data?.error || 'Incorrect email and/or password'
+
+                if (remainingAttempts === 2) {
+                    errorMessage += ' You have 1 remaining attempts before your account is locked.'
+                }
+                console.error(err?.response?.data?.error)
+                processLoginErrors(errorMessage)
+            } else {
+                console.error(err?.response?.data?.error)
+                processLoginErrors(err?.response?.data?.error)
+            }
         }
         setLoading(false)
     }
