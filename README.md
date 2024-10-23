@@ -18,6 +18,7 @@ This repository contains the frontend of the "User Authentication and Access Tra
 - [Deployed App Access](#deployed-app-access)
 - [GitHub Repositories](#github-repositories)
 - [Features](#features)
+- [Session Management](#session-management)
 - [Installation and Setup](#installation-and-setup)
 - [Deployment](#deployment)
 - [License](#license)
