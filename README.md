@@ -11,17 +11,15 @@ This repository contains the frontend of the "User Authentication and Access Tra
 - **ReactJS** - For building the user interface.
 - **React Router** - To manage client-side navigation.
 - **CSS, Bootstrap & styled-components** - For styling the application.
-- **Jest & React Testing Library** - For unit and integration testing. *(Not yet implemented)*
+- **jwt-decode** - To decode JSON Web Tokens (JWT) and handle session expiration.
+- **SweetAlert2 (swal messaging)** - For enhanced user messaging and alert dialogs.
 
 ## Contents
 - [Deployed App Access](#deployed-app-access)
 - [GitHub Repositories](#github-repositories)
 - [Features](#features)
 - [Installation and Setup](#installation-and-setup)
-- [Folder Structure](#folder-structure)
-- [Testing](#testing)
 - [Deployment](#deployment)
-- [Conclusion](#conclusion)
 - [License](#license)
 - [Contact](#contact)
 
@@ -35,18 +33,44 @@ This repository contains the frontend of the "User Authentication and Access Tra
 
 ## Features
 
-### User Authentication
+- **Sign-Up:** Public page where users can create new accounts by filling out required information, such as name, email, and password.
 
-- **Sign-Up Page:** Users can create new accounts by filling out the required information.
-- **Sign-In Page:** Users can sign in to access the application.
-- **Password Management:** Users can reset and update their passwords. *(Not yet implemented)*
-- **Account Lock Notification:** Users are notified if their account has been locked due to failed login attempts. *(Not yet implemented)*
-- **Multi-Factor Authentication (MFA):** Additional security layer for users during sign-in. *(Not yet implemented)*
+- **Sign-In:** Public page where users can sign in to access the application using their registered credentials.
 
-### Access Tracking *(Not yet implemented)*
+- **Forgot Password:** Public page that allows users to reset their password by receiving a password reset link via email.
 
-- **Failed Login Alerts:** Notify users when multiple failed login attempts are detected on their account. *(Not yet implemented)*
-- **New Browser Login Alerts:** Notify users when their account is accessed from a new browser or device. *(Not yet implemented)*
+- **Verify OTP:** Public page where users enter the one-time password (OTP) sent to their email to complete the login process.
+
+- **Profile:** Private page that acts as a user portal, displaying the user's information and settings.
+
+- **Home:** Private page providing general information about the site, including access to key features and user-specific data.
+
+- **404:** Public page displayed when a user navigates to a non-existent URL, indicating the requested page could not be found.
+
+- **Edit Profile:** Private page that allows users to update their personal information, such as their name, profile picture, and contact details.
+
+- **Update Password:** Private page where users can securely update their password after logging in.
+
+## Session Management
+
+Session management in this application is handled on the client-side using state management in combination with `localStorage` to store the authentication token. The session is monitored, and upon expiry, users are logged out automatically. Here's an overview of the implementation:
+
+- **Session State Management**:
+  - The state `currentUser` stores the information about the logged-in user, while `token` is used to store the JWT authentication token.
+  - The `token` is also saved in `localStorage` to persist the session across page reloads.
+  
+- **Login Process (`handleLogin` function)**:
+  - When a user logs in, `handleLogin` updates the `currentUser` and `token` state.
+  - It decodes the JWT to determine the expiration time and sets a timeout to automatically log the user out once the token expires.
+  - If the token is invalid, the user is logged out immediately.
+  
+- **Logout Process (`handleLogout` function)**:
+  - Clears the `currentUser` and `token` from state and removes the token from `localStorage`.
+  - Cancels any active timeouts that were set to automatically log the user out after token expiration.
+  - Displays appropriate messages using `Swal` to notify users when they are logged out, either due to manual action or session timeout.
+
+This client-side approach, combined with secure backend JWT verification, helps ensure users have consistent and secure sessions while using the application.
+
 
 ## Installation and Setup
 
@@ -71,30 +95,6 @@ This repository contains the frontend of the "User Authentication and Access Tra
    npm run dev
    ```
 
-## Folder Structure
-
-- **src/components** - Contains reusable components such as forms, buttons, and alerts.
-- **src/pages** - Contains the main pages of the application such as SignUp, SignIn, and Home.
-<!-- - **src/services** - Contains utility functions for making API calls. -->
-
-## Testing *(Not yet implemented)*
-
-Testing is an important part of the application to ensure it behaves as expected and meets requirements. This project includes the following tests:
-
-### Unit Testing *(Not yet implemented)*
-
-- **Components:** Ensure individual components work as expected.
-- **Utilities:** Test functions used in API calls and other logic.
-
-### Integration Testing *(Not yet implemented)*
-
-- Test interactions between components and services.
-
-To run tests:
-```sh
-npm test
-```
-
 ## Deployment
 
 The frontend can be deployed using services such as **Netlify**, **Vercel**, or **GitHub Pages**. Deployment instructions for Netlify are provided below:
@@ -103,12 +103,8 @@ The frontend can be deployed using services such as **Netlify**, **Vercel**, or 
 2. Connect the GitHub repository to Netlify.
 3. Configure build settings:
    - **Build Command:** `npm run build`
-   - **Publish Directory:** `build`
+   - **Publish Directory:** `dist`
 4. Deploy the site.
-
-## Conclusion
-
-This project focuses on building a user-friendly and secure frontend for the authentication and access tracking system. The goal was to provide a smooth user experience while ensuring proper security measures were in place to protect user data.
 
 
 ## License
