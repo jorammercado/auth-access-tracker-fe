@@ -91,9 +91,6 @@ const LoginMFA = ({ setCurrentUser }) => {
                 const remainingAttempts = err?.response?.data?.remainingAttempts
                 let errorMessage = err?.response?.data?.error || 'Incorrect email and/or password'
 
-                if (remainingAttempts === 2) {
-                    errorMessage += ' You have 1 remaining attempts before your account is locked.'
-                }
                 console.error(err?.response?.data?.error)
                 processLoginErrors(errorMessage)
             } else {
