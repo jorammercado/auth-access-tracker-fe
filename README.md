@@ -4,7 +4,8 @@
 
 ## Project Overview
 
-This repository contains the frontend of the "User Authentication and Access Tracking System with Database Integration and Email Alerts" project, developed for the Red Canary Software Engineer Take-Home Exam. The frontend is built using ReactJS and interacts with the backend services to provide user sign-up, sign-in, and access tracking functionalities.
+This repository contains the frontend of the "User Authentication and Access Tracking System with Database Integration and Email Alerts" project, developed for the Red Canary Software Engineer Take-Home Exam. The frontend is built using ReactJS and interacts with the backend services to provide user sign-up, sign-in, and access tracking functionalities.  For details on security features and backend development, please refer to the [backend README](https://github.com/jorammercado/red-canary-takehome-be/blob/main/README.md).
+
 
 ### Technologies Used
 
@@ -29,8 +30,8 @@ This repository contains the frontend of the "User Authentication and Access Tra
 - **Deployed Server on Render**: [Server](https://red-canary-takehome-be.onrender.com/)
 
 ## GitHub Repositories
-- [FrontEnd](https://github.com/jorammercado/red-canary-takehome-fe)
-- [BackEnd](https://github.com/jorammercado/red-canary-takehome-be)
+- [Frontend - red-canary-takehome-fe](https://github.com/jorammercado/red-canary-takehome-fe)
+- [Backend  - red-canary-takehome-be](https://github.com/jorammercado/red-canary-takehome-be)
 
 ## Features
 
