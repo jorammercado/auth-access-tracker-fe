@@ -24,11 +24,11 @@ This repository contains the frontend of the "User Authentication and Access Tra
 
 ## Deployed App Access
 - **Deployed App on Netlify**: [Application](https://auth-access-tracker.netlify.app/) 
-- **Deployed Server on Render**: [Server](https://red-canary-takehome-be.onrender.com/)
+- **Deployed Server on Render**: [Server](https://auth-access-tracker-be.onrender.com/)
 
 ## GitHub Repositories
-- [Frontend - red-canary-takehome-fe](https://github.com/JoramAMercado/auth-access-tracker-fe)
-- [Backend  - red-canary-takehome-be](https://github.com/JoramAMercado/auth-access-tracker-be)
+- [Frontend - auth-access-tracker-fe](https://github.com/JoramAMercado/auth-access-tracker-fe)
+- [Backend - auth-access-tracker-be](https://github.com/JoramAMercado/auth-access-tracker-be)
 
 ## Features
 
