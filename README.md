@@ -1,11 +1,8 @@
 # User Authentication and Access Tracking System Frontend
 
-![Red Canary Logo](./red-canary-logo.png)
-
 ## Project Overview
 
-This repository contains the frontend of the "User Authentication and Access Tracking System with Database Integration and Email Alerts" project, developed for the Red Canary Software Engineer Take-Home Exam. The frontend is built using ReactJS and interacts with the backend services to provide user sign-up, sign-in, and access tracking functionalities.  For details on security features and backend development, please refer to the [backend README](https://github.com/jorammercado/red-canary-takehome-be/blob/main/README.md).
-
+This repository contains the frontend of the "User Authentication and Access Tracking System with Database Integration and Email Alerts" project. The frontend is built using ReactJS and interacts with the backend services to provide user sign-up, sign-in, and access tracking functionalities.  For more details on security features and backend development, please refer to the [backend README](https://github.com/JoramAMercado/auth-access-tracker-be/blob/main/README.md).
 
 ### Technologies Used
 
@@ -26,12 +23,12 @@ This repository contains the frontend of the "User Authentication and Access Tra
 - [Contact](#contact)
 
 ## Deployed App Access
-- **Deployed App on Netlify**: [Application](https://redcanary-securelogin-test.netlify.app/) 
+- **Deployed App on Netlify**: [Application](https://auth-access-tracker.netlify.app/) 
 - **Deployed Server on Render**: [Server](https://red-canary-takehome-be.onrender.com/)
 
 ## GitHub Repositories
-- [Frontend - red-canary-takehome-fe](https://github.com/jorammercado/red-canary-takehome-fe)
-- [Backend  - red-canary-takehome-be](https://github.com/jorammercado/red-canary-takehome-be)
+- [Frontend - red-canary-takehome-fe](https://github.com/JoramAMercado/auth-access-tracker-fe)
+- [Backend  - red-canary-takehome-be](https://github.com/JoramAMercado/auth-access-tracker-be)
 
 ## Features
 
@@ -78,8 +75,8 @@ This client-side approach, combined with secure backend JWT verification, helps 
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-username/red-canary-takehome-fe.git
-   cd red-canary-takehome-be.git
+   git clone https://github.com/your-username/auth-access-tracker-fe.git
+   cd auth-access-tracker-fe.git
    ```
 
 2. Install dependencies:
@@ -115,5 +112,5 @@ This project is licensed under the MIT License. See the [LICENSE](https://openso
 ## Contact
 For any inquiries or feedback, please contact:
 
-- Joram Mercado: [GitHub](https://github.com/jorammercado), [LinkedIn](https://www.linkedin.com/in/jorammercado)
+- Joram Mercado: [GitHub](https://github.com/JoramAMercado), [LinkedIn](https://www.linkedin.com/in/joramamercado)
 

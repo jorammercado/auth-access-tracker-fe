@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useNavigate } from "react-router-dom"
 import "./NavBar.css"
-import logo from "../assets/red-canary-logo.png"
+import logo from "../assets/safe.svg"
 
 export default function NavBar({ token, setToken, handleLogout }) {
     const navigate = useNavigate()
