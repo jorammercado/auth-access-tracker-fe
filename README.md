@@ -2,15 +2,15 @@
 
 ## Project Overview
 
-This repository contains the frontend of the "User Authentication and Access Tracking System with Database Integration and Email Alerts" project. The frontend is built using ReactJS and interacts with the backend services to provide user sign-up, sign-in, and access tracking functionalities.  For more details on security features and backend development, please refer to the [backend README](https://github.com/JoramAMercado/auth-access-tracker-be/blob/main/README.md).
+This repository contains the frontend of the **User Authentication and Access Tracking System with Database Integration and Email Alerts** project. Built with ReactJS, the frontend interacts with backend services to provide user sign-up, sign-in, and access tracking functionalities. For details on security features and backend development, see the [backend README](https://github.com/jorammercado/auth-access-tracker-be/blob/main/README.md).
 
 ### Technologies Used
 
-- **ReactJS** - For building the user interface.
-- **React Router** - To manage client-side navigation.
-- **CSS, Bootstrap & styled-components** - For styling the application.
-- **jwt-decode** - To decode JSON Web Tokens (JWT) and handle session expiration.
-- **SweetAlert2 (swal messaging)** - For enhanced user messaging and alert dialogs.
+- **ReactJS** - For building the user interface
+- **React Router** - To manage client-side navigation
+- **CSS, Bootstrap & styled-components** - For styling the application
+- **jwt-decode** - To decode JSON Web Tokens (JWT) and handle session expiration
+- **SweetAlert2 (swal messaging)** - For enhanced user messaging and alert dialogs
 
 ## Contents
 - [Deployed App Access](#deployed-app-access)
@@ -23,12 +23,12 @@ This repository contains the frontend of the "User Authentication and Access Tra
 - [Contact](#contact)
 
 ## Deployed App Access
-- **Deployed App on Netlify**: [Application](https://auth-access-tracker.netlify.app/) 
+- **Deployed App on Netlify**: [Application](https://auth-access-tracker.netlify.app/)
 - **Deployed Server on Render**: [Server](https://auth-access-tracker-be.onrender.com/)
 
 ## GitHub Repositories
-- [Frontend - auth-access-tracker-fe](https://github.com/JoramAMercado/auth-access-tracker-fe)
-- [Backend - auth-access-tracker-be](https://github.com/JoramAMercado/auth-access-tracker-be)
+- [Frontend - auth-access-tracker-fe](https://github.com/jorammercado/auth-access-tracker-fe)
+- [Backend - auth-access-tracker-be](https://github.com/jorammercado/auth-access-tracker-be)
 
 ## Features
 
@@ -42,7 +42,7 @@ This repository contains the frontend of the "User Authentication and Access Tra
 
 - **Profile:** Private page that acts as a user portal, displaying the user's information and settings.
 
-- **Home:** Private page providing general information about the site, including access to key features and user-specific data.
+- **Home:** For the purposes of this project, a private page that provides general information about the site, including an overview of key features.
 
 - **404:** Public page displayed when a user navigates to a non-existent URL, indicating the requested page could not be found.
 
@@ -66,7 +66,7 @@ Session management in this application is handled on the client-side using state
 - **Logout Process (`handleLogout` function)**:
   - Clears the `currentUser` and `token` from state and removes the token from `localStorage`.
   - Cancels any active timeouts that were set to automatically log the user out after token expiration.
-  - Displays appropriate messages using `Swal` to notify users when they are logged out, either due to manual action or session timeout.
+  - Displays appropriate messages using `Swal`, with messaging tailored to the type of logout event. For manual logouts, users see a confirmation message indicating they have logged out successfully. For session timeouts, users are notified that their session has expired due to inactivity and they need to log in again.
 
 This client-side approach, combined with secure backend JWT verification, helps ensure users have consistent and secure sessions while using the application.
 
@@ -76,7 +76,7 @@ This client-side approach, combined with secure backend JWT verification, helps 
 1. Clone the repository:
    ```sh
    git clone https://github.com/your-username/auth-access-tracker-fe.git
-   cd auth-access-tracker-fe.git
+   cd auth-access-tracker-fe
    ```
 
 2. Install dependencies:
@@ -96,14 +96,17 @@ This client-side approach, combined with secure backend JWT verification, helps 
 
 ## Deployment
 
-The frontend can be deployed using services such as **Netlify**, **Vercel**, or **GitHub Pages**. Deployment instructions for Netlify are provided below:
+The frontend can be deployed using services such as **Netlify**, **Vercel**, or **GitHub Pages**. Easy deployment instructions for Netlify are provided below. For Vercel and GitHub Pages, the general process is similar; refer to their official docs for details.
 
 1. Create a new site on Netlify.
 2. Connect the GitHub repository to Netlify.
 3. Configure build settings:
    - **Build Command:** `npm run build`
    - **Publish Directory:** `dist`
-4. Deploy the site.
+4. Add an environment variable in the Netlify settings:
+   - **Key:** `VITE_API_URL`
+   - **Value:** URL of your deployed backend server (e.g., `https://auth-access-tracker-be.onrender.com`)
+5. Deploy the site.
 
 
 ## License
@@ -112,5 +115,4 @@ This project is licensed under the MIT License. See the [LICENSE](https://openso
 ## Contact
 For any inquiries or feedback, please contact:
 
-- Joram Mercado: [GitHub](https://github.com/JoramAMercado), [LinkedIn](https://www.linkedin.com/in/joramamercado)
-
+- Joram Mercado: [GitHub](https://github.com/jorammercado), [LinkedIn](https://www.linkedin.com/in/jorammercado)
